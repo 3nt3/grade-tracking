@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=ksGm2kMctRS79Uv7AD
+      - POSTGRES_USER=grades
+      - POSTGRES_DB=grades
+    volumes:
+      - "db_data:/var/lib/postgresql/data"
+    ports:
+      - "5434:5432"
+
+        # app:
+        #   build: .
+        #   ports:
+        #     - "8000:8000"
+        #   command: "cargo test"
+        #   volumes:
+        #     - ".:/usr/src/app"
+        #     - registry:/root/.cargo/registry # Secret Sauce
+
+volumes:
+  db_data:
+  registry:
+    driver: local
