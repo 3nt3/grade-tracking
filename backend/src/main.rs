@@ -26,8 +26,8 @@ async fn main() -> anyhow::Result<()> {
 
     // query!("select * from grades")
 
-    rocket::build()
-        .mount("/", routes![routes::get_grades])
+    let _ = rocket::build()
+        .mount("/", routes![routes::get_grades, routes::create_grade])
         .manage(pool)
         .launch()
         .await?;
